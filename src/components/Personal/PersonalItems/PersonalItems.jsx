@@ -6,22 +6,13 @@ export default class PersonalItems extends Component{
     constructor(props){
         super(props)
 
-        this.state = {
-            [this.props.name]:""
-        }
-        this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(e){
-        this.setState({
-            [this.props.name]:e.target.value
-        })
-    }
     render(){
-        const {name,type,value} = this.props;
+        const {name,type,value,disabled,handleChange,id} = this.props;
         return(
-            <div className={styles[name.toLowerCase()]}>
-                <input type={type} placeholder={value} id={name} name={name} value={this.state[name]} onChange={this.handleChange} />
+            <div className={styles[id]}>
+                <input type={type} placeholder={name}  name={name} value={value} onChange={handleChange} disabled = {disabled} />
             </div>
         )
     }

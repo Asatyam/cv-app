@@ -6,7 +6,42 @@ export default class Personal extends Component{
 
     constructor(){
         super()
+
+        this.handleEdit = this.handleEdit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+
+
+         this.state = {
+         inputs:{
+            first:"",
+            last:"",
+            email:"",
+            phone:"",
+            address:"",
+        },
+        disabled:false,
     }
+    }
+   
+    handleEdit(e){
+        this.setState({
+            disabled:!this.state.disabled,
+        })
+        e.target.textContent = e.target.textContent==="Edit"?"Save":"Edit";
+    }
+
+    handleChange(e){
+        this.setState({
+            inputs:{
+                first:e.target.value,
+                last:e.target.value,
+                email:e.target.value,
+                phone:e.target.value,
+                address:e.target.value,  
+            }
+        })
+    }
+
 
     render(){
         const personalItems = [{
@@ -35,9 +70,10 @@ export default class Personal extends Component{
         return(
             <div className={styles.personal}>
                 <h2>Personal Information</h2>
-               
-                {personalItems.map((item)=><PersonalItems key={item.id} name={item.id} value = {item.name} type={item.type} />)}
-                
+                {personalItems.map((item)=><PersonalItems key={item.id} name={item.name} value = {this.state.inputs[item.name]}  handleChange = {this.handleChange} type={item.type} id = {item.id} disabled = {this.state.disabled} />)}
+                <div className="buttons">
+                    <button className="edit" onClick={this.handleEdit}>Save</button>
+                </div>
             </div>
         )
     }
