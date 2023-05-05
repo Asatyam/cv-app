@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import Header from "../Header/Header";
 import './App.module.css'
+import Container from "../Container/Container";
 export default class App extends Component{
     constructor()
     {
@@ -9,7 +10,10 @@ export default class App extends Component{
 
     render(){
         return (
+            <>
             <Header/>
+            <Container/>
+            </>
         )
     }
 }
