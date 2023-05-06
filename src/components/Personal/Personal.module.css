@@ -3,11 +3,12 @@
     display: flex;
     flex-direction: column;
     gap:15px;
-    background-color: aquamarine;
+    background-color: #bae6fd;
     padding:20px;
     border-radius: 8px;
     
 }
+
 .personal h2{
     text-align: center;
 }
@@ -16,17 +17,17 @@
     padding:6px 10px;
     font-size:1.2rem;
     border-radius:10px;
-    border: 1px solid black;
+    border: 3px solid #1e3a8a;
     background: rgba(250,250,250,0);
-    background-color: peachpuff;
+    background-color: #bae6fd;
     
 
 }
 .personal input:disabled{
     color:black;
     border:none;
-    background-color: aquamarine;
-    text-align: center;
+    background-color: #bae6fd;
+    
 }
 .first{
     background-color: green;
