@@ -9,17 +9,15 @@ export default class Personal extends Component{
 
         this.handleEdit = this.handleEdit.bind(this);
         this.handleChange = this.handleChange.bind(this);
-
+        this.handleReset = this.handleReset.bind(this);
 
          this.state = {
-         inputs:{
             first:"",
             last:"",
             email:"",
             phone:"",
             address:"",
-        },
-        disabled:false,
+            disabled:false,
     }
     }
    
@@ -28,20 +26,23 @@ export default class Personal extends Component{
             disabled:!this.state.disabled,
         })
         e.target.textContent = e.target.textContent==="Edit"?"Save":"Edit";
+        
     }
 
     handleChange(e){
         this.setState({
-            inputs:{
-                first:e.target.value,
-                last:e.target.value,
-                email:e.target.value,
-                phone:e.target.value,
-                address:e.target.value,  
-            }
+            [e.target.name]: e.target.value
         })
     }
-
+    handleReset(){
+        this.setState({
+            first:"",
+            last:"",
+            email:"",
+            phone:"",
+            address:"",
+        })
+    }
 
     render(){
         const personalItems = [{
@@ -70,10 +71,12 @@ export default class Personal extends Component{
         return(
             <div className={styles.personal}>
                 <h2>Personal Information</h2>
-                {personalItems.map((item)=><PersonalItems key={item.id} name={item.name} value = {this.state.inputs[item.name]}  handleChange = {this.handleChange} type={item.type} id = {item.id} disabled = {this.state.disabled} />)}
-                <div className="buttons">
+                 <div className="buttons">
                     <button className="edit" onClick={this.handleEdit}>Save</button>
+                   { !this.state.disabled &&  <button onClick={this.handleReset} className="reset" > Reset </button>}
                 </div>
+                {personalItems.map((item)=><PersonalItems key={item.id} name={item.id} value = {this.state[item.id]}  handleChange = {this.handleChange} type={item.type} placeholder = {item.name} disabled = {this.state.disabled} />)}
+               
             </div>
         )
     }

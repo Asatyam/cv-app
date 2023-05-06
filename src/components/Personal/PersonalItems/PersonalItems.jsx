@@ -9,10 +9,10 @@ export default class PersonalItems extends Component{
     }
 
     render(){
-        const {name,type,value,disabled,handleChange,id} = this.props;
+        const {name,type,value,disabled,handleChange,id,placeholder} = this.props;
         return(
-            <div className={styles[id]}>
-                <input type={type} placeholder={name}  name={name} value={value} onChange={handleChange} disabled = {disabled} />
+            <div className={styles[name]}>
+                <input type={type} placeholder={placeholder}  name={name} value={value} onChange={handleChange} disabled = {disabled} />
             </div>
         )
     }
