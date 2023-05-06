@@ -1,0 +1,60 @@
+.experience {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: aquamarine;
+    padding: 20px;
+    border-radius: 8px;
+
+}
+
+.experience h2 {
+    text-align: center;
+}
+
+.experience input {
+    width: 400px;
+    padding: 6px 10px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    border: 1px solid black;
+    background: rgba(250, 250, 250, 0);
+    background-color: peachpuff;
+
+
+}
+
+.experience input:disabled {
+    color: black;
+    border: none;
+    background-color: aquamarine;
+    text-align: center;
+}
+
+
+
+.experience .buttons {
+    display: none;
+}
+
+.experience:hover .buttons {
+    position: absolute;
+    top: 24px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.edit,
+.reset {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.edit img,
+.reset img {
+    height: 20px;
+    width: 20px;
+}

@@ -1,5 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import React, {Component} from "react";
-import PersonalItems from "./PersonalItems/PersonalItems.jsx";
+import Items from "../Items/Items";
 import styles from './Personal.module.css'
 
 export default class Personal extends Component{
@@ -76,7 +77,7 @@ export default class Personal extends Component{
                     <button className={styles.edit} onClick={this.handleEdit}>{this.state.disabled ? <img src = "/edit.svg" alt = "" /> : <img src = "/save.svg" alt = ""/>}</button>
                    { !this.state.disabled &&  <button onClick={this.handleReset} className={styles.reset} > <img src="/delete.svg" alt="" /> </button>}
                 </div>
-                {personalItems.map((item)=><PersonalItems key={item.id} name={item.id} value = {this.state[item.id]}  handleChange = {this.handleChange} type={item.type} placeholder = {item.name} disabled = {this.state.disabled} />)}
+                {personalItems.map((item)=><Items key={item.id} name={item.id} value = {this.state[item.id]}  handleChange = {this.handleChange} type={item.type} placeholder = {item.name} disabled = {this.state.disabled} />)}
                
             </div>
         )
